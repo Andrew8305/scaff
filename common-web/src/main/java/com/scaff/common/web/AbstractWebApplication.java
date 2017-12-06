@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
 @Slf4j
 public abstract class AbstractWebApplication extends SpringBootServletInitializer implements ApplicationRunner {
 
-    public void start(ApplicationArguments arguments) {
+    private void start(ApplicationArguments arguments) {
     }
 
     protected static ApplicationContext context;
