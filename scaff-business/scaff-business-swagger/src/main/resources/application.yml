@@ -1,0 +1,12 @@
+server:
+  port: 8003                         # 指定该Eureka实例的端口
+  servlet-path: /swagger
+spring:
+  application:
+    name: business-source-swagger    # 项目名称尽量用小写
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@discovery:8761/eureka/    # 指定注册中心的地址
+  instance:
+    preferIpAddress: true

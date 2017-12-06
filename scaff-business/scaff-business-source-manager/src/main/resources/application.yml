@@ -1,0 +1,16 @@
+server:
+  port: 8001                         # 指定该Eureka实例的端口
+#  servlet-path: /sourceManage
+spring:
+  application:
+    name: business-source-manager    # 项目名称尽量用小写
+  rabbitmq:
+      host: xyl
+      username: guest
+      password: 123456
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@discovery:8761/eureka/    # 指定注册中心的地址
+  instance:
+    preferIpAddress: true

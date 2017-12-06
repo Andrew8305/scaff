@@ -1,0 +1,29 @@
+eureka:
+  instance:
+    hostname: zipkin
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@discovery:8761/eureka/
+server:
+  port: 9411
+spring:
+  application:
+    name: scaff-zipkin-server
+  sleuth:
+    enabled: false
+  rabbitmq:
+    host: xyl
+    username: guest
+    password: 123456
+
+zipkin:
+  storage:
+    type: elasticsearch
+    StorageComponent: elasticsearch
+    elasticsearch:
+      cluster: elasticsearch
+      max-requests: 30
+      index: zipkin
+      index-shards: 3
+      index-replicas: 1
+      hosts: localhost:9200

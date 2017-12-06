@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: scaff-oauth2-server    # 项目名称尽量用小写
+server:
+  port: 8102                    # 指定该Eureka实例的端口
+  context-path: /uaa
+security:
+  sessions: stateless
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@discovery:8761/eureka/    # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
