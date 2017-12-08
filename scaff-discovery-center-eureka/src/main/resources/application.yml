@@ -4,6 +4,8 @@ spring:
 server:
   port: 8761
 eureka:
+  server:
+#    enable-self-preservation: false #关闭自我保护，删除已经关停的节点,建议不要使用
   instance:
     hostname: discovery1                               # 指定当profile=discovery1时，主机名
   client:
@@ -22,6 +24,8 @@ spring:
 server:
   port: 8762
 eureka:
+  server:
+#    enable-self-preservation: false #关闭自我保护，删除已经关停的节点,建议不要使用
   instance:
     hostname: discovery2
   client:
