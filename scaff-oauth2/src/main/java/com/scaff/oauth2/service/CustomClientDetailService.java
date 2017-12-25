@@ -2,7 +2,7 @@ package com.scaff.oauth2.service;
 
 import com.scaff.oauth2.dto.CustomClientDetails;
 import com.scaff.oauth2.model.OauthClientDetails;
-import com.scaff.oauth2.repository.OauthClientDetailsRepository;
+import com.scaff.oauth2.mapper.OauthClientDetailsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
