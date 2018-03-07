@@ -1,5 +1,7 @@
 package com.scaff.common.web.result;
 
+import com.scaff.utils.json.FastJsonUtil;
+
 import java.io.Serializable;
 
 /**
@@ -56,5 +58,9 @@ public class Result<T> implements Serializable {
 
     protected void setData(T data) {
         this.data = data;
+    }
+
+    public <S> S get(Class<S> clazz){
+        return FastJsonUtil.parseObject(data,clazz);
     }
 }

@@ -1,21 +1,21 @@
 package com.scaff.common.web;
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.time.StopWatch;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by xyl on 11/9/17.
  */
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"com.scaff.common.web"})
+@ComponentScan(basePackages = {"com.scaff"})
 @Slf4j
-public abstract class AbstractWebApplication extends SpringBootServletInitializer implements ApplicationRunner {
+public abstract class AbstractWebApplication implements ApplicationRunner {
 
     private void start(ApplicationArguments arguments) {
     }

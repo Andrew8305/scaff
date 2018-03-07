@@ -44,8 +44,9 @@ public class UploadController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "username",value = "用户姓名",required = false, dataType = "String",paramType = "body")
     })
-    public boolean test(@PathVariable(value = "username") String username){
+    public boolean test(@PathVariable(value = "username") String username) throws InterruptedException {
         System.out.println(username);
+        Thread.sleep(10000l);
         return false;
     }
 

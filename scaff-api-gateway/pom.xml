@@ -12,12 +12,6 @@
     <artifactId>scaff-api-gateway</artifactId>
 
     <dependencies>
-        <!--通用的工具引入-->
-        <dependency>
-            <groupId>scaff</groupId>
-            <artifactId>common-utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <!--通用的枚举引入-->
         <dependency>
             <groupId>scaff</groupId>
@@ -33,15 +27,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!--引入oauth依赖-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-security</artifactId>
+            <groupId>scaff</groupId>
+            <artifactId>common-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <groupId>scaff</groupId>
+            <artifactId>common-config-center</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

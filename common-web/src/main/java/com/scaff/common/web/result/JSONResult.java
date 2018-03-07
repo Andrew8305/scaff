@@ -4,16 +4,27 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.PropertyNamingStrategy;
 import com.alibaba.fastjson.serializer.SerializeConfig;
+import com.alibaba.fastjson.support.spring.FastJsonJsonView;
 import com.scaff.enums.date.DateFomatterEnum;
 import com.scaff.utils.exception.IErrorCode;
+import com.scaff.utils.json.JacksonUtil;
+
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collection;
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 /**
  * Created by cw on 15-11-20.
  */
+@NoArgsConstructor
 public class JSONResult extends Result<JSONObject> {
+
+    private static final long serialVersionUID = 1L;
+
     private JSONResult(IErrorCode iErrorCode, boolean success, JSONObject data) {
         this(iErrorCode.getCode(), iErrorCode.getMessage(),success,data);
     }
@@ -35,6 +46,10 @@ public class JSONResult extends Result<JSONObject> {
 
     public static JSONResult ok(Object object){
         return ok(JSON.parseObject(toJSONString(object, DateFomatterEnum.DEFAULT)));
+    }
+
+    public static JSONResult ok(JSONObject data) {
+        return new JSONResult(IErrorCode.OK, true, JSON.parseObject(toJSONString(data,DateFomatterEnum.DEFAULT)));
     }
 
     public static JSONResult ok(Object object,String dateFormat) {
@@ -103,5 +118,9 @@ public class JSONResult extends Result<JSONObject> {
         } else {
             return JSON.toJSONString(object, config, null, dateFormat, JSON.DEFAULT_GENERATE_FEATURE);
         }
+    }
+
+    public ModelAndView buildModelAndView() {
+        return new ModelAndView(new FastJsonJsonView(), JacksonUtil.jsonToMap(this.buildJsonString()));
     }
 }

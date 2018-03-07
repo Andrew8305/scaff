@@ -5,6 +5,7 @@ import com.scaff.common.web.argsresolver.FastJsonArgumentResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -21,6 +22,11 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         return new FastJsonArgumentResolver();
     }
 
+    @Bean
+    MethodValidationPostProcessor methodValidationPostProcessor() {
+        return new MethodValidationPostProcessor();
+    }
+
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
         argumentResolvers.add(fastJsonArgumentResolver());
@@ -31,4 +37,5 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         FastJsonHttpMessageConverter converter = new FastJsonHttpMessageConverter();
         converters.add(converter);
     }
+
 }

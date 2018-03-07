@@ -1,20 +1,3 @@
 server:
   port: 8060
 
-auth:
-  permitall:
-    -
-      pattern: /login/**
-    -
-      pattern: /web/**
-
-security:
-  oauth2:
-    client:
-      accessTokenUri: /oauth/token
-      clientId: frontend
-      clientSecret: frontend
-    resource:
-      userInfoUri: /user
-      token-info-uri: /oauth/check_token
-  filter-order: 1

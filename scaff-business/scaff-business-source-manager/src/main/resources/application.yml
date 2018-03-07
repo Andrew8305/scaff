@@ -3,7 +3,7 @@ server:
 #  servlet-path: /sourceManage
 spring:
   application:
-    name: business-source-manager    # 项目名称尽量用小写
+    name: service-reg       # 项目名称尽量用小写
   rabbitmq:
       host: xyl
       username: guest

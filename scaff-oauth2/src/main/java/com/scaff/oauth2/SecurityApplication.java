@@ -1,17 +1,13 @@
 package com.scaff.oauth2;
 
+import com.scaff.common.web.AbstractWebApplication;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by xyl on 11/17/17.
@@ -19,12 +15,15 @@ import java.security.Principal;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class SecurityApplication {
+@Slf4j
+public class SecurityApplication extends AbstractWebApplication{
 
     public static void main(String[] args) {
 
-    SpringApplication.run(SecurityApplication.class, args);
-
+        context = SpringApplication.run(SecurityApplication.class, args);
+        for (String name : context.getBeanDefinitionNames()) {
+            log.info(name);
+        }
     }
 
 }

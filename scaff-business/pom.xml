@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>scaff-business-source-manager</module>
-        <module>scaff-business-test</module>
         <module>scaff-business-data-analyze</module>
         <module>scaff-business-model</module>
         <module>scaff-business-swagger</module>

@@ -10,9 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>common-tools</artifactId>
+    <packaging>pom</packaging>
 
     <modules>
-        <module>common-mybatis</module>
+        <module>common-mybatis-plus</module>
+        <module>common-mongo</module>
+        <module>common-distribute-lock</module>
+        <module>common-redis</module>
+        <module>common-config-center</module>
     </modules>
 
 </project>

@@ -12,11 +12,6 @@
     <artifactId>scaff-business-source-manager</artifactId>
 
     <dependencies>
-        <!-- 添加Eureka的依赖 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
         <!-- 添加通用web的依赖-->
         <dependency>
             <groupId>scaff</groupId>

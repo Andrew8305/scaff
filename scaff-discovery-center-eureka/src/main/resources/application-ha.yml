@@ -1,0 +1,40 @@
+---
+spring:
+  profiles: discovery1                                 # 指定profile=discovery1
+server:
+  port: 8761
+eureka:
+  server:
+#    enable-self-preservation: false #关闭自我保护，删除已经关停的节点,建议不要使用
+  instance:
+    hostname: discovery1                               # 指定当profile=discovery1时，主机名
+  client:
+    serviceUrl:
+      defaultZone: http://discovery2:8762/eureka/      # 将自己注册到discovery2这个Eureka上面去
+
+security:
+  basic:
+    enabled: true
+  user:
+     name: root
+     password: root
+---
+spring:
+  profiles: discovery2
+server:
+  port: 8762
+eureka:
+  server:
+#    enable-self-preservation: false #关闭自我保护，删除已经关停的节点,建议不要使用
+  instance:
+    hostname: discovery2
+  client:
+    serviceUrl:
+      defaultZone: http://discovery1:8761/eureka/
+
+security:
+  basic:
+    enabled: true
+  user:
+     name: root
+     password: root

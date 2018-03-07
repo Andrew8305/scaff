@@ -19,6 +19,8 @@ public interface IErrorCode extends Serializable{
 
     int BasicCodeStartCode = 2000;
 
+    int WebBusinessStartCode = 3000;
+
     Map<String,IErrorCode> errorCodeMap = new HashMap<>();
 
     IErrorCode OK = new IErrorCode() {

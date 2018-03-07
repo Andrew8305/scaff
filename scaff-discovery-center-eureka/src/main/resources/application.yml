@@ -1,16 +1,16 @@
----
-spring:
-  profiles: discovery1                                 # 指定profile=discovery1
 server:
-  port: 8761
+  port: 8761                    # 指定该Eureka实例的端口
+
 eureka:
   server:
-#    enable-self-preservation: false #关闭自我保护，删除已经关停的节点,建议不要使用
+    enable-self-preservation: false #关闭自我保护，删除已经关停的节点
   instance:
-    hostname: discovery1                               # 指定当profile=discovery1时，主机名
+    hostname: discovery         # 指定该Eureka实例的主机名
   client:
+    registerWithEureka: false
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://discovery2:8762/eureka/      # 将自己注册到discovery2这个Eureka上面去
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 security:
   basic:
@@ -18,23 +18,14 @@ security:
   user:
      name: root
      password: root
----
-spring:
-  profiles: discovery2
-server:
-  port: 8762
-eureka:
-  server:
-#    enable-self-preservation: false #关闭自我保护，删除已经关停的节点,建议不要使用
-  instance:
-    hostname: discovery2
-  client:
-    serviceUrl:
-      defaultZone: http://discovery1:8761/eureka/
 
-security:
-  basic:
-    enabled: true
-  user:
-     name: root
-     password: root
+spring:
+  rabbitmq:
+      host: xyl
+      username: guest
+      password: 123456
+
+
+
+# 参考文档：http://projects.spring.io/spring-cloud/docs/1.0.3/spring-cloud.html#_standalone_mode
+# 参考文档：http://my.oschina.net/buwei/blog/618756
