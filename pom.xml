@@ -69,13 +69,13 @@
         <spring.aspects.version>5.0.2.RELEASE</spring.aspects.version>
         <apache.common.io.version>3.6</apache.common.io.version>
         <common.io.version>2.6</common.io.version>
-        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-        <mybatisplus.version>2.1.7</mybatisplus.version>
-        <velocity.version>1.7</velocity.version>
+        <mybatisplus-spring-boot-starter.version>2.1.9</mybatisplus-spring-boot-starter.version>
+        <mybatisplus.version>2.1.9</mybatisplus.version>
         <morphia.version>1.3.2</morphia.version>
         <org.reflection.version>0.9.9-RC1</org.reflection.version>
         <redisson.version>3.5.5</redisson.version>
         <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
+        <velocity.version>1.7</velocity.version>
         <spring.boot.version>1.5.9.RELEASE</spring.boot.version>
     </properties>
 
