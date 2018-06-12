@@ -4,18 +4,20 @@ import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.plugins.PerformanceInterceptor;
 import com.baomidou.mybatisplus.plugins.parser.ISqlParserFilter;
 import com.baomidou.mybatisplus.toolkit.PluginUtils;
-
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.reflection.MetaObject;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * Created by xyl on 12/25/17.
  */
 @Configuration
-@MapperScan("com.scaff.*.mapper")
+@MapperScan("com.scaff.**.mapper")
+@EnableTransactionManagement(proxyTargetClass = true,mode = AdviceMode.ASPECTJ)
 public class MybatisPlusConfig {
 
     /**
@@ -25,6 +27,25 @@ public class MybatisPlusConfig {
     public PerformanceInterceptor performanceInterceptor() {
         return new PerformanceInterceptor();
     }
+
+    /**
+     * 开启逻辑删除
+     * 1、修改 集成  全局注入器为  LogicSqlInjector
+     * 2、全局注入值：
+     * logicDeleteValue  // 逻辑删除全局值
+     * logicNotDeleteValue // 逻辑未删除全局值
+     * 3、逻辑删除的字段需要注解  @TableLogic
+     * 详细文档：http://mp.baomidou.com/#/logic-delete
+     * @return
+     */
+//    @Bean
+//    public GlobalConfiguration globalConfiguration() {
+//        GlobalConfiguration conf = new GlobalConfiguration(new LogicSqlInjector());
+//        conf.setLogicDeleteValue("1");
+//        conf.setLogicNotDeleteValue("0");
+//        conf.setIdType(0);
+//        return conf;
+//    }
 
     /**
      * mybatis-plus分页插件<br>

@@ -16,18 +16,18 @@ public class GeneratorServiceEntity {
 
     @Test
     public void generateCode(){
-        String packageName = "com.scaff.services";
-        generateByTables(packageName, "services");
+        String packageName = "com.scaff.verifydecision";
+        generateByTables(packageName, "ca_app_user");
     }
 
     private void generateByTables(String packageName, String... tableNames){
         GlobalConfig config = new GlobalConfig();
-        String dbUrl = "jdbc:mysql://localhost:3306/plana";
+        String dbUrl = "jdbc:mysql://o2o-prod-database.ctzmfkptox9x.rds.cn-north-1.amazonaws.com.cn:3306/o2o";
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDbType(DbType.MYSQL)
                 .setUrl(dbUrl)
-                .setUsername("root")
-                .setPassword("123456")
+                .setUsername("o2o-rw")
+                .setPassword("!o2o-rw_%Pa88word.123")
                 .setDriverName("com.mysql.jdbc.Driver");
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig
@@ -39,7 +39,8 @@ public class GeneratorServiceEntity {
                 .setInclude(tableNames);//修改替换成你需要的表名，多个表名传数组
         config.setActiveRecord(false)
                 .setAuthor("xueyunlong")
-                .setOutputDir("/home/xyl/project/plana/plana-business/plana-business-services/src/main/java/")
+              .setOutputDir("/Users/xueyunlong/IdeaProjects/decisionplatform/verification-business/verification-business-verifydecision/src/main/java")
+
                 .setFileOverride(true);
         new AutoGenerator().setGlobalConfig(config)
                 .setDataSource(dataSourceConfig)
@@ -47,8 +48,12 @@ public class GeneratorServiceEntity {
                 .setPackageInfo(
                         new PackageConfig()
                                 .setParent(packageName)
-                                .setController("controller")
+//                                .setController("controller")
                                 .setEntity("entity")
+                                .setMapper("mapper")
+                                .setXml("mapper.xml")
+                                .setService("service")
+                                .setServiceImpl("service.impl")
                 ).execute();
     }
 }
